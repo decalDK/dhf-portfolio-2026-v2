@@ -1,0 +1,742 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="段皓凡工业设计作品集">
+  <title>段皓凡 | Industrial Design Portfolio</title>
+  <style>
+    :root{--bg:#f8f8fc;--text:#111;--muted:#666570;--line:#c9c9cf;--g:clamp(20px,3.5vw,68px)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,"Microsoft YaHei",sans-serif}
+    body.menu-open{overflow:hidden}a{color:inherit;text-decoration:none}button{font:inherit}
+    .nav{position:fixed;z-index:10;inset:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:20px var(--g);transition:.25s}
+    .nav.scrolled{background:#f8f8fceb;border-bottom:1px solid #d7d7dc;backdrop-filter:blur(12px)}
+    .brand{font-weight:700;letter-spacing:.08em}.links{display:flex;gap:32px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}.links a{border-bottom:1px solid transparent}.links a:hover{border-color:currentColor}
+    .menu{display:none;border:0;background:none;padding:10px 0;letter-spacing:.12em}
+    .hero{position:relative;width:100%;height:auto;min-height:0;aspect-ratio:16/9;overflow:hidden;background:#f9f8fd;isolation:isolate;padding-top:34px}
+    .hero picture{display:block;width:100%;height:100%}
+    .hero-base{display:block;width:100%;height:100%;object-fit:contain}
+    .hero-bubble{position:absolute;z-index:1;left:0;top:0;width:100px;height:100px;object-fit:contain;pointer-events:none;user-select:none;will-change:transform}
+    .hero-mobile-copy,.hero-mobile-contact{display:none}
+    .meta{font-size:12px;letter-spacing:.13em;text-transform:uppercase}
+    .resume-transition{height:clamp(90px,7vw,130px);background:#f9f8fd}
+    .resume{position:relative;overflow:hidden;background:#f7f7fb;border-bottom:1px solid var(--line)}.resume>img{display:block;width:100%;height:auto}.resume-mobile{display:none}
+    main{position:relative;overflow:hidden;padding:0 var(--g)}
+    .section-title{display:flex;justify-content:space-between;align-items:end;padding:110px 0 24px;border-bottom:1px solid var(--line)}
+    .section-title h2{margin:0;font-size:clamp(36px,6vw,90px);line-height:.9;letter-spacing:-.05em}
+    .project{--theme:#111;--theme-ink:#fff;position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(24px,3vw,52px);align-items:stretch;padding:clamp(72px,8vw,128px) 0;border-bottom:1px solid var(--line)}
+    #project-1{--theme:#FF4B21;--theme-ink:#111}
+    #project-2{--theme:#FF6082;--theme-ink:#fff}
+    #project-3{--theme:#A5D03D;--theme-ink:#111}
+    #project-4{--theme:#64A7FF;--theme-ink:#111}
+    #project-5{--theme:#FDE273;--theme-ink:#111}
+    #project-1{--button-grad:linear-gradient(90deg,rgba(255,75,33,.88),rgba(255,151,86,.82),rgba(253,216,165,.78))}
+    #project-2{--button-grad:linear-gradient(90deg,rgba(207,199,248,.9),rgba(237,190,227,.86),rgba(249,184,207,.9))}
+    #project-3{--button-grad:linear-gradient(90deg,rgba(211,236,202,.92),rgba(190,214,170,.88),rgba(204,231,217,.9))}
+    #project-4{--button-grad:linear-gradient(90deg,rgba(197,216,249,.92),rgba(194,201,247,.88),rgba(206,193,242,.9))}
+    #project-5{--button-grad:linear-gradient(90deg,rgba(251,229,170,.92),rgba(233,239,211,.88),rgba(203,230,247,.9))}
+    .project>*:not(.project-moon){position:relative;z-index:1}.project-moon{position:absolute;z-index:0;pointer-events:none}
+    .project-moon.edge{width:clamp(150px,19vw,300px);opacity:.42;filter:saturate(1.12) contrast(1.04)}
+    .project-moon.soft{width:clamp(90px,11vw,170px);opacity:.13;filter:saturate(.85)}
+    .project-moon{animation:moon-float var(--duration,10s) ease-in-out infinite alternate;transform:rotate(var(--angle,0deg))}
+    .project-moon.soft{animation-name:moon-float-soft;animation-direction:alternate-reverse}
+    #project-1 .edge{left:-9%;top:3%;--angle:18deg;--dx:28px;--dy:-18px;--turn:15deg;--duration:7.8s}
+    #project-1 .soft{left:25%;bottom:2%;width:clamp(80px,9vw,140px);--angle:202deg;--dx:-20px;--dy:24px;--turn:-13deg;--duration:9.4s}
+    #project-2 .edge{left:-12%;top:5%;width:clamp(170px,21vw,330px);--angle:156deg;--dx:32px;--dy:16px;--turn:-16deg;--duration:8.6s}
+    #project-2 .soft{left:26%;bottom:5%;width:clamp(100px,12vw,185px);--angle:-12deg;--dx:-24px;--dy:-20px;--turn:14deg;--duration:7.5s}
+    #project-3 .edge{right:-7%;bottom:3%;width:clamp(140px,17vw,270px);--angle:32deg;--dx:-27px;--dy:22px;--turn:17deg;--duration:9.7s}
+    #project-3 .soft{left:18%;top:12%;width:clamp(75px,8vw,130px);--angle:214deg;--dx:19px;--dy:-24px;--turn:-15deg;--duration:8.1s}
+    #project-4 .edge{left:-9%;bottom:1%;width:clamp(190px,23vw,350px);--angle:142deg;--dx:30px;--dy:-17px;--turn:-14deg;--duration:9.1s}
+    #project-4 .soft{left:29%;top:11%;width:clamp(95px,10vw,155px);--angle:8deg;--dx:-22px;--dy:18px;--turn:16deg;--duration:7.2s}
+    #project-5 .edge{right:-12%;top:5%;width:clamp(160px,20vw,315px);--angle:48deg;--dx:-31px;--dy:19px;--turn:15deg;--duration:8.4s}
+    #project-5 .soft{left:20%;bottom:5%;width:clamp(90px,11vw,175px);--angle:228deg;--dx:21px;--dy:-22px;--turn:-13deg;--duration:10s}
+    @keyframes moon-float{from{transform:translate3d(0,0,0) rotate(var(--angle)) scale(.97)}to{transform:translate3d(var(--dx),var(--dy),0) rotate(calc(var(--angle) + var(--turn))) scale(1.055)}}
+    @keyframes moon-float-soft{from{transform:translate3d(0,0,0) rotate(var(--angle)) scale(.94)}to{transform:translate3d(var(--dx),var(--dy),0) rotate(calc(var(--angle) + var(--turn))) scale(1.07)}}
+    .project-visual{grid-column:1/9;grid-row:1;position:relative;aspect-ratio:3/2;overflow:hidden;background:#fff;border:1px solid #dedee3}
+    .project-visual img{width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.22,1,.36,1)}
+    #project-1 .project-visual,#project-2 .project-visual,#project-3 .project-visual,#project-4 .project-visual,#project-5 .project-visual{background:#f8f8fc;border-radius:15px;box-shadow:0 14px 36px rgba(87,78,121,.10)}
+    #project-1 .project-visual::before,#project-1 .project-visual::after,#project-2 .project-visual::before,#project-2 .project-visual::after,#project-3 .project-visual::before,#project-3 .project-visual::after,#project-4 .project-visual::before,#project-4 .project-visual::after,#project-5 .project-visual::before,#project-5 .project-visual::after{content:"";position:absolute;z-index:2;left:0;width:100%;height:8%;pointer-events:none;backdrop-filter:blur(12px) saturate(1.15);box-shadow:inset 0 1px rgba(255,255,255,.55),inset 0 -1px rgba(255,255,255,.24)}
+    #project-1 .project-visual::before{top:0;background:linear-gradient(90deg,rgba(255,75,33,.66) 0%,rgba(255,151,86,.62) 48%,rgba(253,216,165,.62) 100%)}
+    #project-1 .project-visual::after{bottom:0;background:linear-gradient(90deg,rgba(254,210,158,.62) 0%,rgba(255,139,83,.62) 48%,rgba(255,75,33,.66) 100%)}
+    #project-2 .project-visual::before{top:0;background:linear-gradient(90deg,rgba(207,199,248,.72) 0%,rgba(237,190,227,.68) 48%,rgba(249,184,207,.7) 100%)}
+    #project-2 .project-visual::after{bottom:0;background:linear-gradient(90deg,rgba(249,198,226,.7) 0%,rgba(232,195,240,.68) 48%,rgba(202,197,246,.72) 100%)}
+    #project-3 .project-visual::before{top:0;background:linear-gradient(90deg,rgba(211,236,202,.74) 0%,rgba(201,222,181,.7) 48%,rgba(222,237,193,.72) 100%)}
+    #project-3 .project-visual::after{bottom:0;background:linear-gradient(90deg,rgba(225,239,207,.72) 0%,rgba(190,214,170,.7) 48%,rgba(204,231,217,.74) 100%)}
+    #project-4 .project-visual::before{top:0;background:linear-gradient(90deg,rgba(197,216,249,.74) 0%,rgba(191,190,244,.7) 48%,rgba(210,199,247,.72) 100%)}
+    #project-4 .project-visual::after{bottom:0;background:linear-gradient(90deg,rgba(212,226,250,.72) 0%,rgba(194,201,247,.7) 48%,rgba(206,193,242,.74) 100%)}
+    #project-5 .project-visual::before{top:0;background:linear-gradient(90deg,rgba(251,229,170,.76) 0%,rgba(246,237,190,.7) 48%,rgba(205,229,241,.72) 100%)}
+    #project-5 .project-visual::after{bottom:0;background:linear-gradient(90deg,rgba(203,230,247,.72) 0%,rgba(233,239,211,.7) 48%,rgba(251,232,177,.76) 100%)}
+    #project-1 .project-visual img,#project-2 .project-visual img,#project-3 .project-visual img,#project-4 .project-visual img,#project-5 .project-visual img{position:relative;z-index:1;object-fit:contain}
+    .project-visual:hover img{transform:scale(1.025)}
+    .project-copy{grid-column:10/13;grid-row:1;display:flex;height:100%;flex-direction:column;align-items:flex-start;padding-top:4px}
+    .project:nth-of-type(even) .project-visual{grid-column:5/13}
+    .project:nth-of-type(even) .project-copy{grid-column:1/4}
+    .project-copy>div{width:100%}
+    .project:nth-of-type(odd) .project-copy{align-items:flex-end;text-align:right}
+    .project:nth-of-type(odd) .project-tags{justify-content:flex-end}
+    .project:nth-of-type(odd) .project-description{margin-left:auto}
+    #project-5 .project-visual{grid-column:1/9;aspect-ratio:3/2}
+    #project-5 .project-copy{grid-column:10/13;align-items:flex-end;text-align:right;padding-top:4px}
+    #project-5 .project-tags{justify-content:flex-end}
+    #project-5 .project-description{max-width:27ch;margin-left:auto}
+    #project-5 .project-copy h3{max-width:12.5em}
+    .project-copy h3{margin:14px 0 7px;font-size:clamp(26px,2.9vw,44px);line-height:1.08;letter-spacing:-.035em}
+    .project-en{margin:0;font-size:clamp(10px,.78vw,12px);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+    .project-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+    .project-tags span{padding:5px 10px;border-radius:999px;background:rgba(17,17,17,.09);font-size:10px;line-height:1;white-space:nowrap}
+    .project-description{max-width:27ch;min-height:4.95em;margin:clamp(32px,4vw,58px) 0 24px;color:var(--muted);font-size:clamp(13px,1vw,15px);line-height:1.65}
+    .project-link{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-width:min(100%,290px);min-height:48px;margin-top:auto;padding:0 24px;border-radius:999px;background:var(--button-grad);color:#111;font-size:13px;font-weight:700;letter-spacing:.08em;box-shadow:inset 0 1px rgba(255,255,255,.55),0 10px 24px rgba(87,78,121,.08);transition:transform .25s,filter .25s}
+    .project-link span{font-size:20px;transition:transform .25s}.project-link:hover{filter:saturate(1.08) brightness(.98);transform:translateY(-2px)}.project-link:hover span{transform:translateX(4px)}.project-link:active{transform:translateY(0)}
+    .quick-look{--quick-card-w:clamp(340px,31vw,500px);position:relative;margin:clamp(82px,9vw,140px) calc(var(--g)*-1) 0;padding:clamp(52px,5.8vw,86px) 0 clamp(52px,5.8vw,86px);overflow:hidden;border-top:1px solid var(--line);background:#f8f8fc}
+    .quick-head{display:flex;align-items:end;justify-content:space-between;margin:0 var(--g) clamp(52px,5.8vw,86px);border-bottom:1px solid var(--line);padding-bottom:18px}
+    .quick-head h2{margin:0;font-size:clamp(34px,5.4vw,82px);line-height:.9;letter-spacing:-.045em}
+    .quick-rows{position:relative;display:grid;gap:0}
+    .quick-rows::before,.quick-rows::after{content:"";position:absolute;z-index:3;top:0;bottom:0;width:clamp(72px,10vw,180px);pointer-events:none}
+    .quick-rows::before{left:0;background:linear-gradient(90deg,#f8f8fc 0%,rgba(248,248,252,.86) 28%,rgba(248,248,252,0) 100%)}
+    .quick-rows::after{right:0;background:linear-gradient(270deg,#f8f8fc 0%,rgba(248,248,252,.86) 28%,rgba(248,248,252,0) 100%)}
+    .quick-row{overflow:visible}.quick-row.offset{margin-left:calc(var(--quick-card-w)*.3)}
+    .quick-track{display:flex;width:max-content;gap:clamp(14px,1.45vw,24px);will-change:transform;transform:translateX(0);transition:none}
+    .quick-card{display:grid;grid-template-rows:auto 1fr;gap:clamp(19px,1.8vw,30px);width:var(--quick-card-w);height:calc(var(--quick-card-w)*.735);border:0;border-radius:16px;background:#fff;box-shadow:0 16px 42px rgba(72,82,108,.10);padding:16px clamp(16px,1.7vw,24px) clamp(22px,2vw,34px);text-align:left;color:#111;cursor:pointer;transition:transform .28s cubic-bezier(.22,1,.36,1),box-shadow .28s,filter .28s}
+    .quick-card:hover{transform:scale(1.035);box-shadow:0 22px 58px rgba(72,82,108,.16);filter:saturate(1.02)}
+    .quick-thumb{display:block;width:100%;aspect-ratio:16/9;border-radius:12px;object-fit:cover;background:linear-gradient(120deg,#dfeaff,#f8e2ef)}
+    .quick-card-bottom{display:grid;grid-template-columns:minmax(0,1fr) max-content;align-items:start;gap:clamp(12px,1.5vw,24px)}
+    .quick-card h3{align-self:start;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;font-size:clamp(18px,1.42vw,24px);line-height:1.08;letter-spacing:-.035em}
+    .quick-tags{display:flex;flex-wrap:wrap;gap:clamp(8px,.9vw,16px);margin-top:0}
+    .quick-tags span{padding:5px 10px;border:1px solid #a9c7ff;border-radius:9px;background:#f4f8ff;font-size:clamp(9px,.64vw,11px);line-height:1;white-space:nowrap}
+    .quick-card .quick-tags{flex-wrap:nowrap;justify-content:flex-end;max-width:none;margin-top:0}
+    .quick-more{display:none}
+    body.quick-open{overflow:hidden}
+    .quick-overlay{position:fixed;z-index:9990;inset:0;display:none;align-items:center;justify-content:center;padding:clamp(14px,2vw,28px);background:rgba(25,25,30,.48);backdrop-filter:blur(8px);opacity:0;transition:opacity .25s ease}
+    .quick-overlay.open{display:flex;opacity:1}
+    .quick-modal{--quick-modal-w:min(100%,1120px,calc((100vh - 300px) * 1.67));position:relative;width:min(1200px,90vw);max-height:calc(100vh - 48px);overflow:hidden;border-radius:16px;background:#f8f8fc;box-shadow:0 26px 90px rgba(0,0,0,.22);padding:clamp(20px,1.8vw,30px);transform:scale(.965);transition:transform .28s cubic-bezier(.22,1,.36,1)}
+    .quick-overlay.open .quick-modal{transform:scale(1)}
+    .quick-hero{position:relative;width:var(--quick-modal-w);aspect-ratio:1922/1151;margin:0 auto;overflow:hidden;border-radius:12px;background:transparent}
+    .quick-nav-btn{position:absolute;z-index:2;top:50%;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:999px;background:rgba(248,248,252,.9);box-shadow:0 10px 26px rgba(20,24,36,.12);font-family:Arial,sans-serif;font-size:30px;font-weight:400;line-height:1;color:#111;cursor:pointer;transform:translateY(-50%);transition:transform .22s,background .22s}
+    .quick-nav-btn:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
+    .quick-prev{left:clamp(12px,1.4vw,22px)}.quick-next{right:clamp(12px,1.4vw,22px)}
+    .quick-slide{display:none;width:100%;height:100%;object-fit:contain;border-radius:12px;background:transparent}.quick-slide.active{display:block}
+    .quick-dots{display:flex;justify-content:center;width:var(--quick-modal-w);gap:8px;margin:10px auto 0}.quick-dot{width:7px;height:7px;border:0;border-radius:999px;background:#c9c9cf;padding:0;cursor:pointer}.quick-dot.active{width:20px;background:#111}
+    .quick-detail{display:grid;grid-template-columns:minmax(0,1fr) max-content;width:var(--quick-modal-w);gap:10px 28px;align-items:start;margin:20px auto 0}
+    .quick-detail h3{position:relative;margin:0 0 26px;font-size:clamp(28px,2.45vw,40px);line-height:1.05;letter-spacing:-.055em}
+    .quick-detail h3::after{content:"";position:absolute;left:0;bottom:-17px;width:130px;height:1px;background:#9f9fa6}
+    .quick-detail .quick-tags{justify-content:flex-end;margin-top:0}
+    .quick-desc{grid-column:1/-1;width:100%;margin:0;padding-top:0;border-top:0;color:#222;font-size:clamp(12px,.9vw,14px);line-height:1.58;letter-spacing:.03em;white-space:normal;overflow-wrap:break-word}
+    .project-transition-stage{position:fixed;z-index:9998;inset:0;background:#f8f8fc;opacity:0;pointer-events:none;transition:opacity .42s ease}
+    .project-transition-stage.active{opacity:1}
+    .project-transition-cover{position:fixed;z-index:9999;margin:0;object-fit:cover;pointer-events:none;box-shadow:0 18px 70px rgba(30,30,45,.1);transition:top .78s cubic-bezier(.22,1,.36,1),left .78s cubic-bezier(.22,1,.36,1),width .78s cubic-bezier(.22,1,.36,1),height .78s cubic-bezier(.22,1,.36,1),border-radius .78s cubic-bezier(.22,1,.36,1),opacity .2s ease}
+    body.project-leaving{overflow:hidden}
+    footer{position:relative;isolation:isolate;min-height:clamp(640px,74vh,820px);overflow:hidden;padding:clamp(130px,12vw,180px) var(--g) 38px;background:#f8f8fc;color:#111;border-top:1px solid var(--line)}
+    footer h2{position:relative;z-index:1;margin:16px 0 88px;max-width:none;font-size:clamp(34px,5vw,78px);line-height:1;letter-spacing:-.045em;white-space:nowrap}
+    .contact-list{position:relative;z-index:1;display:flex;width:min(100%,520px);flex-direction:column;align-items:stretch;padding-bottom:22px;border-bottom:1px solid var(--line)}
+    .contact-list a{display:inline-flex;align-items:center;gap:13px;padding:13px 0;color:#33323a;font-size:clamp(18px,1.65vw,26px);letter-spacing:.08em;line-height:1.2;transition:transform .24s,color .24s}
+    .contact-list a:hover{color:#111;transform:translateY(-2px)}
+    .contact-list svg{width:26px;height:26px;flex:0 0 auto;stroke:currentColor;stroke-width:2.1;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .foot{position:relative;z-index:1;display:flex;justify-content:space-between;margin-top:96px;padding-top:20px;border-top:1px solid var(--line);font-size:13px}
+    .footer-moon{position:absolute;z-index:0;left:0;top:0;width:var(--size);height:var(--size);object-fit:contain;pointer-events:none;user-select:none;will-change:transform}
+    .footer-moon.blue{--size:clamp(300px,38vw,560px);opacity:.86}
+    .footer-moon.pink{--size:clamp(160px,22vw,330px);opacity:.86}
+    a:focus-visible,button:focus-visible{outline:3px solid #315efb;outline-offset:5px}
+    @media(max-width:760px){
+      body.menu-open::before{content:"";position:fixed;inset:0;z-index:8;background:rgba(0,0,0,.58);backdrop-filter:blur(2px)}.nav{padding:14px 20px}.nav.scrolled,body.menu-open .nav{background:#f8f8fc;color:#111;border-bottom:1px solid #d7d7dc;backdrop-filter:none}.menu{display:block;position:relative;z-index:12}.links{position:fixed;z-index:11;left:0;right:0;top:64px;display:flex;flex-direction:column;gap:0;padding:12px 32px 34px;background:#f8f8fc;border-top:1px solid #d7d7dc;border-radius:0 0 10px 10px;box-shadow:0 24px 60px rgba(0,0,0,.14);font-size:18px;line-height:1.2;letter-spacing:.08em;transform:translateY(-118%);opacity:0;pointer-events:none;transition:transform .34s ease,opacity .24s ease}.links.open{transform:translateY(0);opacity:1;pointer-events:auto}.links a{padding:15px 0;border-bottom:1px solid rgba(17,17,17,.62)}
+      .hero{height:calc(100svh - 64px);min-height:620px;max-height:920px;padding-top:0;aspect-ratio:auto}.hero picture{display:none}.hero-bubble{display:block}.hero-mobile-copy{position:absolute;z-index:2;inset:0 0 0 8.2%;display:block}.hero-years{position:absolute;top:9.2%;left:0;margin:0;font-size:clamp(25px,7.4vw,34px);line-height:1.15;letter-spacing:.11em}.hero-mark{display:none}.hero-mobile-copy h1{position:absolute;top:58.8%;left:0;margin:0;font-size:clamp(40px,11.4vw,54px);line-height:.9;letter-spacing:.075em;font-weight:800;white-space:nowrap}.hero-mobile-copy .hero-sub{position:absolute;top:66.2%;left:0;margin:0;font-size:clamp(17px,4.8vw,24px);letter-spacing:.2em;white-space:nowrap}.hero-mobile-copy .hero-rule{position:absolute;top:71.2%;left:0;width:52%;height:1px;margin:0;background:var(--line)}.hero-mobile-copy h2{position:absolute;top:73.5%;left:0;margin:0;font-size:clamp(23px,6.4vw,31px);letter-spacing:.08em}.hero-objective{position:absolute;top:79.2%;left:0;margin:0;font-size:clamp(14px,4vw,18px);line-height:1.42;color:#222}.hero-objective span{display:block;margin-top:10px;color:#555}.hero-mobile-contact{position:absolute;z-index:3;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;gap:8px;padding:7px 7px 8px;border-top:1px solid var(--line);background:#f8f8fce8;backdrop-filter:blur(8px)}.hero-mobile-contact a{display:inline-flex;align-items:center;gap:4px;color:#33323a;font-size:clamp(9px,2.85vw,13px);letter-spacing:.02em;white-space:nowrap}.hero-mobile-contact a+a{border-left:1px solid rgba(17,17,17,.18);padding-left:8px}.hero-mobile-contact svg{width:17px;height:17px;stroke:currentColor;stroke-width:2.1;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .resume-transition{height:70px}.resume>img{display:none}.resume-mobile{position:relative;z-index:1;display:block;overflow:hidden;padding:72px 9.6% 92px;background:#f8f8fc;color:#111}.resume-mobile *{box-sizing:border-box}.resume-mobile img{display:block}.resume-moon{position:absolute;z-index:0;width:46vw;height:46vw;object-fit:contain;pointer-events:none;opacity:.58;filter:saturate(.9)}.resume-moon.one{right:-18vw;top:22vw;transform:rotate(150deg)}.resume-moon.two{right:2vw;top:100vw;width:34vw;height:34vw;transform:rotate(178deg);opacity:.42}.resume-moon.three{left:-24vw;bottom:18vw;width:56vw;height:56vw;transform:rotate(24deg);opacity:.34}.resume-card,.resume-block{position:relative;z-index:1}.resume-card{margin-bottom:40px;text-align:center}.resume-portrait{width:168px;height:168px;margin:0 auto 22px;padding:4px;border-radius:50%;background:conic-gradient(from 214deg,#bda8ee 0deg,#7aa3ef 58deg,#4fd6dd 138deg,#b9e5e1 228deg,#cdb1e9 318deg,#bda8ee 360deg)}.resume-portrait img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center;background:#f8f8fc}.resume-name{margin:0;font-size:28px;line-height:1;font-weight:800;letter-spacing:.12em}.resume-en{margin:7px 0 16px;color:#777;letter-spacing:.22em;font-size:12px}.resume-card .resume-tags{justify-content:center}.resume-tags,.resume-skills{display:flex;flex-wrap:wrap;gap:7px}.resume-tags span,.resume-skills span,.resume-course span{display:inline-flex;align-items:center;border:1px solid #a9c7ff;border-radius:7px;padding:2px 9px;background:#f3f7ff;font-size:12px;line-height:1.15}.resume-block{margin-top:44px}.resume-block h3{display:flex;align-items:center;gap:9px;margin:0 0 20px;font-size:20px;letter-spacing:.06em}.resume-block h3 small{font-size:11px;font-weight:400;letter-spacing:.08em;color:#555;text-transform:uppercase}.resume-dot{width:16px;height:16px;border-radius:50%;background:linear-gradient(120deg,#f45cc5,#48c6f2);box-shadow:0 4px 12px rgba(80,150,255,.22)}.resume-states{list-style:none;margin:0;padding:0;display:grid;gap:14px;font-size:15px}.resume-states li{position:relative;padding-left:18px}.resume-states li::before{content:"";position:absolute;left:0;top:.58em;width:7px;height:7px;border-radius:50%;background:linear-gradient(120deg,#44c9ff,#8e7cff)}.resume-skill-row{display:grid;grid-template-columns:60px 1fr;gap:9px;align-items:start;margin-top:12px;font-size:14px}.resume-skill-row strong{line-height:1.75}.resume-timeline,.resume-grid{position:relative;display:grid;gap:22px;margin-left:0;padding-left:22px;border-left:1px solid #c7c7cd}.resume-item,.resume-project-item{position:relative;border-left:0;padding-left:0}.resume-item::before,.resume-project-item::before{content:"";position:absolute;left:-27px;top:5px;width:8px;height:8px;border-radius:50%;background:#333}.resume-time{font-size:12px;letter-spacing:.05em}.resume-item h4,.resume-project-item h4{margin:7px 0 7px;font-size:16px;line-height:1.35}.resume-item p,.resume-project-item p{margin:0;color:#333;font-size:13px;line-height:1.58}.resume-course{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+      .section-title{padding-top:80px}.project{display:flex;min-height:0;flex-direction:column;padding:72px 0 86px}.project-copy,.project:nth-of-type(even) .project-copy,#project-5 .project-copy{width:100%;height:auto;min-height:0;padding:0}.project-copy h3{font-size:clamp(27px,8vw,36px)}.project-visual,.project:nth-of-type(even) .project-visual,#project-5 .project-visual{order:2;width:100%;margin-top:42px;aspect-ratio:3/2}.project-description,#project-5 .project-description{min-height:0;margin-top:34px;margin-bottom:26px;font-size:14px}.project-link{min-width:240px;margin-top:0}
+      .project-moon.edge{max-width:155px;opacity:.36}.project-moon.soft{max-width:90px;opacity:.1}
+      #project-1 .edge,#project-3 .edge,#project-5 .edge{right:-60px;left:auto}#project-2 .edge,#project-4 .edge{left:-60px;right:auto}
+      #project-1 .soft{right:8%;top:60%}#project-2 .soft{left:7%;bottom:4%}#project-3 .soft{right:10%;bottom:5%}#project-4 .soft{left:9%;top:62%}#project-5 .soft{right:8%;bottom:8%}
+      .quick-look{--quick-card-w:100%;margin-top:72px;padding:56px 20px}.quick-rows::before,.quick-rows::after{display:none}.quick-head{align-items:flex-start;gap:14px;flex-direction:column;margin-left:0;margin-right:0;margin-bottom:56px}.quick-head h2{font-size:clamp(38px,14vw,62px)}.quick-rows{display:grid;grid-template-columns:1fr;gap:0}.quick-row,.quick-row.offset{margin-left:0}.quick-track{display:grid;width:100%;grid-template-columns:1fr;gap:16px;animation:none!important;transform:none!important;cursor:default}.quick-card{width:100%;min-width:0;height:auto;gap:16px;border-radius:14px;padding:12px 12px 18px}.quick-thumb{border-radius:10px}.quick-card-bottom{grid-template-columns:minmax(0,1fr) max-content;gap:8px}.quick-card h3{font-size:15px}.quick-card .quick-tags{flex-wrap:nowrap;max-width:none;gap:5px}.quick-tags span{padding:4px 7px;border-radius:7px;font-size:9px}.quick-modal{--quick-modal-w:100%;width:94vw;max-height:88vh;border-radius:14px;padding:14px}.quick-nav-btn{width:34px;height:34px;font-size:24px}.quick-prev{left:8px}.quick-next{right:8px}.quick-detail{display:block;margin-top:16px}.quick-detail h3{font-size:24px;margin-bottom:32px}.quick-detail .quick-tags{position:static;max-width:none;justify-content:flex-start}.quick-desc{margin-top:12px;font-size:12px;line-height:1.55}
+      footer{min-height:680px;padding-top:96px}footer h2{font-size:clamp(34px,10vw,58px);margin-bottom:58px;white-space:normal}.contact-list{width:100%}.contact-list a{padding:17px 0;font-size:16px}.footer-moon.blue{--size:76vw}.footer-moon.pink{--size:44vw}.foot{gap:20px;flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.project-visual img,.nav{transition:none}.hero-bubble{will-change:auto}.project-moon,.footer-moon,.quick-track{animation:none}}
+    .quick-rows{display:block;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;cursor:grab;padding:16px var(--g) 30px;touch-action:pan-x pan-y}
+    .quick-rows::-webkit-scrollbar{display:none}
+    .quick-rows::before,.quick-rows::after{display:none}
+    .quick-track{display:flex;width:max-content;transform:none!important;user-select:none}
+    .quick-card{flex-shrink:0;cursor:grab}
+    .quick-rows.dragging,.quick-rows.dragging .quick-card{cursor:grabbing}
+    .quick-rows.dragging .quick-card{transform:none}
+    .quick-thumb{-webkit-user-drag:none}
+    .quick-slide{cursor:zoom-in}
+    .quick-lightbox{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:64px 24px 24px;border:0;background:rgba(9,11,17,.94);overflow:hidden}
+    .quick-lightbox[open]{display:flex;align-items:center;justify-content:center}
+    .quick-lightbox::backdrop{background:rgba(0,0,0,.6)}
+    .quick-lightbox>img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:4px;box-shadow:0 18px 70px rgba(0,0,0,.4)}
+    .quick-image-close{position:absolute;top:max(12px,env(safe-area-inset-top));right:max(16px,env(safe-area-inset-right));display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid rgba(255,255,255,.45);border-radius:50%;color:#fff;background:rgba(255,255,255,.12);font:32px/1 Arial,sans-serif;cursor:pointer}
+    .quick-image-close:hover{background:rgba(255,255,255,.25)}
+    .quick-image-close:focus-visible,.quick-slide:focus-visible{outline:3px solid #8abaff;outline-offset:3px}
+    @media(max-width:760px){
+      .quick-look{--quick-card-w:min(82vw,380px);padding-left:0;padding-right:0}
+      .quick-head{margin-left:20px;margin-right:20px}
+      .quick-rows{padding-left:20px;padding-right:20px}
+      .quick-card{width:var(--quick-card-w)}
+      .quick-lightbox{padding:64px 12px 24px}
+    }
+
+    /* Resume: one semantic layout shared by desktop and mobile. */
+    .resume-mobile{position:relative;z-index:1;display:block;overflow:hidden;padding:72px 9.6% 92px;background:#f8f8fc;color:#111}.resume-mobile *{box-sizing:border-box}.resume-mobile img{display:block}.resume-moon{position:absolute;z-index:0;width:46vw;height:46vw;object-fit:contain;pointer-events:none;opacity:.58;filter:saturate(.9)}.resume-moon.one{right:-18vw;top:22vw;transform:rotate(150deg)}.resume-moon.two{right:2vw;top:100vw;width:34vw;height:34vw;transform:rotate(178deg);opacity:.42}.resume-moon.three{left:-24vw;bottom:18vw;width:56vw;height:56vw;transform:rotate(24deg);opacity:.34}.resume-card,.resume-block{position:relative;z-index:1}.resume-card{margin-bottom:40px;text-align:center}.resume-portrait{width:168px;height:168px;margin:0 auto 22px;padding:4px;border-radius:50%;background:conic-gradient(from 214deg,#bda8ee 0deg,#7aa3ef 58deg,#4fd6dd 138deg,#b9e5e1 228deg,#cdb1e9 318deg,#bda8ee 360deg)}.resume-portrait img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center;background:#f8f8fc}.resume-name{margin:0;font-size:28px;line-height:1;font-weight:800;letter-spacing:.12em}.resume-en{margin:7px 0 16px;color:#777;letter-spacing:.22em;font-size:12px}.resume-card .resume-tags{justify-content:center}.resume-tags,.resume-skills{display:flex;flex-wrap:wrap;gap:7px}.resume-tags span,.resume-skills span,.resume-course span{display:inline-flex;align-items:center;border:1px solid #a9c7ff;border-radius:7px;padding:2px 9px;background:#f3f7ff;font-size:12px;line-height:1.15}.resume-block{margin-top:44px}.resume-block h3{display:flex;align-items:center;gap:9px;margin:0 0 20px;font-size:20px;letter-spacing:.06em}.resume-block h3 small{font-size:11px;font-weight:400;letter-spacing:.08em;color:#555;text-transform:uppercase}.resume-dot{width:16px;height:16px;border-radius:50%;background:linear-gradient(120deg,#f45cc5,#48c6f2);box-shadow:0 4px 12px rgba(80,150,255,.22)}.resume-states{list-style:none;margin:0;padding:0;display:grid;gap:14px;font-size:15px}.resume-states li{position:relative;padding-left:18px}.resume-states li::before{content:"";position:absolute;left:0;top:.58em;width:7px;height:7px;border-radius:50%;background:linear-gradient(120deg,#44c9ff,#8e7cff)}.resume-skill-row{display:grid;grid-template-columns:60px 1fr;gap:9px;align-items:start;margin-top:12px;font-size:14px}.resume-skill-row strong{line-height:1.75}.resume-timeline,.resume-grid{position:relative;display:grid;gap:22px;margin-left:0;padding-left:22px;border-left:1px solid #c7c7cd}.resume-item,.resume-project-item{position:relative;border-left:0;padding-left:0}.resume-item::before,.resume-project-item::before{content:"";position:absolute;left:-27px;top:5px;width:8px;height:8px;border-radius:50%;background:#333}.resume-time{font-size:12px;letter-spacing:.05em}.resume-item h4,.resume-project-item h4{margin:7px 0 7px;font-size:16px;line-height:1.35}.resume-item p,.resume-project-item p{margin:0;color:#333;font-size:13px;line-height:1.58}.resume-course{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+    #resume{scroll-margin-top:72px}
+    .resume-layout{display:grid;grid-template-columns:minmax(200px,.75fr) minmax(0,1.45fr) minmax(0,1.35fr);gap:clamp(32px,3.3vw,64px);padding:76px var(--g) 96px;max-width:1920px;margin:auto;background:#f8f8fc}
+    .resume-sidebar,.resume-main,.resume-projects{position:relative;z-index:1;min-width:0}
+    .resume-card{text-align:left;margin-bottom:48px}
+    .resume-portrait{width:clamp(168px,15vw,260px);height:clamp(168px,15vw,260px);margin:0 0 28px}
+    .resume-card .resume-tags{justify-content:flex-start}
+    .resume-objective-label{font-size:13px;color:#555;margin:22px 0 10px}
+    .resume-block{margin-top:42px}
+    .resume-main>.resume-block:first-child,.resume-projects>.resume-block:first-child{margin-top:0}
+    .resume-block h3{flex-wrap:wrap;gap:8px 10px;font-size:clamp(20px,1.35vw,26px);line-height:1.45;margin-bottom:24px}
+    .resume-block h3 small{font-size:10px;letter-spacing:.04em}
+    .resume-dot{flex-shrink:0}
+    .resume-item h4,.resume-project-item h4{font-size:clamp(17px,1.08vw,21px);line-height:1.5;overflow-wrap:anywhere}
+    .resume-item p,.resume-project-item p{font-size:14px;line-height:1.85;margin:9px 0 0;overflow-wrap:anywhere}
+    .resume-item p strong,.resume-project-item p strong{font-weight:600;color:#111}
+    .resume-timeline{gap:28px;padding-left:22px}
+    .resume-tags{margin:8px 0 10px}
+    .resume-time{font-size:13px;line-height:1.5}
+    .resume-skills span,.resume-course span,.resume-tags span{line-height:1.5}
+    .resume-skill-row{grid-template-columns:56px minmax(0,1fr);gap:6px}
+    .resume-moon.one{width:260px;height:260px;right:2%;top:18px;opacity:.3}
+    .resume-moon.two{width:230px;height:230px;right:45%;top:28px;opacity:.16}
+    .resume-moon.three{width:300px;height:300px;left:auto;right:-140px;bottom:0;opacity:.25}
+    @media(min-width:1700px){.resume-item p,.resume-project-item p{font-size:16px}}
+    @media(min-width:761px) and (max-width:1100px){
+      .resume-layout{grid-template-columns:220px minmax(0,1fr);gap:44px 32px}
+      .resume-sidebar{grid-row:1 / 3}
+      .resume-projects{grid-column:2}
+    }
+    @media(max-width:760px){
+      .resume-layout{display:flex;flex-direction:column;gap:42px;padding:56px 7% 72px}
+      .resume-card{text-align:center;margin-bottom:36px}
+      .resume-portrait{width:168px;height:168px;margin:0 auto 22px}
+      .resume-card .resume-tags{justify-content:center}
+      .resume-item p,.resume-project-item p{font-size:15px;line-height:1.85}
+      .resume-block h3{font-size:20px}
+      .resume-item h4,.resume-project-item h4{font-size:18px}
+      .resume-main,.resume-projects,.resume-sidebar{width:100%}
+      .resume-moon.one{right:-130px;top:160px}
+      .resume-moon.two{right:-100px;top:45%}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="#top">DUAN HAOFAN</a>
+    <nav class="links" id="links" aria-label="主导航">
+      <a href="#top">首页</a><a href="#resume">简历</a><a href="#work">作品</a><a href="#quick-look">速览</a><a href="#contact">联系</a>
+    </nav>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="links">菜单</button>
+  </header>
+
+  <section class="hero" id="top" aria-label="作品集封面">
+    <picture><img class="hero-base" src="assets/portfolio-cover-clean.png" alt="段皓凡 2024 至 2026 工业设计作品集封面"></picture>
+    <img class="hero-bubble" src="assets/hero-crescent-orange.png?v=3" alt="" data-main="true" data-x=".823" data-y=".258" data-size=".456" data-base-rot="150" data-amp="15" data-period="4.1" data-phase="0" data-collision=".43">
+    <img class="hero-bubble" src="assets/hero-crescent-spectrum.png?v=3" alt="" data-main="true" data-x=".680" data-y=".535" data-size=".394" data-base-rot="180" data-amp="15" data-period="4.5" data-phase="3.14159" data-collision=".43">
+    <img class="hero-bubble" src="assets/hero-crescent-aqua-original.png?v=4" alt="" data-main="true" data-x=".832" data-y=".680" data-size=".32" data-base-rot="30" data-amp="15" data-period="3.9" data-phase="1.5708" data-collision=".42">
+    <img class="hero-bubble" src="assets/hero-crescent-blue.png?v=3" alt="" data-x=".600" data-y=".113" data-size=".104" data-base-rot="90" data-amp="5" data-period="9.4" data-phase="4.7124">
+    <div class="hero-mobile-copy" aria-hidden="true">
+      <p class="hero-years">2024<br>丨<br>2026</p>
+      <h1>PORTFILIO</h1>
+      <p class="hero-sub">INDUSTRIAL DESIGN</p>
+      <div class="hero-rule"></div>
+      <h2>求职人:段皓凡</h2>
+      <p class="hero-objective">Internship Objective<span>产品经理实习生<br>CMF/ID实习生</span></p>
+    </div>
+    <div class="hero-mobile-contact" aria-hidden="true">
+      <a href="weixin://dl/chat?dhf15147168088"><svg viewBox="0 0 24 24"><path d="M10.2 6.5c-4 0-7.2 2.5-7.2 5.7 0 1.8 1 3.4 2.7 4.4l-.5 2 2.3-1.2c.8.3 1.7.5 2.7.5 4 0 7.2-2.5 7.2-5.7s-3.2-5.7-7.2-5.7Z"/><path d="M14.2 10.4c3.3.2 5.8 2.3 5.8 5 0 1.5-.8 2.8-2.2 3.7l.4 1.7-1.9-.9c-.7.2-1.4.3-2.1.3-2.8 0-5.2-1.6-5.8-3.8"/><path d="M7.6 11.2h.01M12.6 11.2h.01M13.6 15.2h.01M17.3 15.2h.01"/></svg>dhf15147168088</a>
+      <a href="tel:15147168088"><svg viewBox="0 0 24 24"><path d="M7.2 4.2 9.6 3l3 5.2-2 1.4c1.1 2.2 2.7 3.8 4.9 4.9l1.4-2 5.2 3-1.2 2.4c-.7 1.5-2.3 2.3-3.9 1.8-6-1.8-10.7-6.5-12.5-12.5-.5-1.6.3-3.2 1.7-4Z"/><path d="M15.5 4.5a4 4 0 0 1 4 4M15.5 1.8a6.7 6.7 0 0 1 6.7 6.7"/></svg>15147168088</a>
+      <a href="mailto:decaldk@163.com"><svg viewBox="0 0 24 24"><path d="M3 7.5 12 2l9 5.5V20H3V7.5Z"/><path d="m3 8 9 6 9-6"/></svg>decaldk@163.com</a>
+    </div>
+  </section>
+
+  <div class="resume-transition" aria-hidden="true"></div>
+
+  <section class="resume" id="resume" aria-label="个人简历">
+    <div class="resume-mobile resume-layout">
+      <img class="resume-moon one" src="assets/hero-crescent-orange.png?v=3" alt="">
+      <img class="resume-moon two" src="assets/hero-crescent-spectrum.png?v=3" alt="">
+      <img class="resume-moon three" src="assets/hero-crescent-aqua-original.png?v=4" alt="">
+      <div class="resume-sidebar">      <section class="resume-card" aria-label="个人信息">
+        <div class="resume-portrait"><img src="assets/resume-avatar-clean.png?v=2" alt="段皓凡头像"></div>
+        <h2 class="resume-name">段皓凡</h2>
+        <p class="resume-en">Duan Haofan</p>
+        <p class="resume-objective-label">职位意向</p><div class="resume-tags"><span>ID设计</span><span>CMF设计</span></div>
+      </section>
+      <section class="resume-block">
+        <h3>目前状态 <small>Status</small></h3>
+        <ul class="resume-states">
+          <li>现居南京</li>
+          <li>2027.04—06 毕业</li>
+        </ul>
+      </section>
+      <section class="resume-block">
+        <h3>技能 <small>Skills</small></h3>
+        <div class="resume-skill-row"><strong>设计类：</strong><div class="resume-skills"><span>Rhino</span><span>UG</span><span>Blender</span><span>C4D</span><span>Keyshot</span><span>PS</span><span>AI</span><span>Figma</span></div></div>
+        <div class="resume-skill-row"><strong>项目类：</strong><div class="resume-skills"><span>Miro</span><span>Xmind</span><span>Pixso</span></div></div>
+        <div class="resume-skill-row"><strong>AI类：</strong><div class="resume-skills"><span>Midjourney</span><span>Codex</span></div></div>
+        <div class="resume-skill-row"><strong>语言：</strong><div class="resume-skills"><span>普通话二甲</span><span>CET-4（528）</span></div></div>
+      </section>
+</div>
+      <div class="resume-main">      <section class="resume-block">
+        <h3><span class="resume-dot"></span>学习经历 <small>Education</small></h3>
+        <div class="resume-timeline">
+          <article class="resume-item">
+            <span class="resume-time">2024.09 - 2027.04</span>
+            <h4>南京理工大学 · 研究生</h4>
+            <p>工业设计工程专业</p>
+            <div class="resume-course"><span>产品工程技术(95)</span><span>设计管理(90)</span><span>设计艺术研究(90)</span></div>
+          </article>
+          <article class="resume-item">
+            <span class="resume-time">2020.09 - 2024.06</span>
+            <h4>南京理工大学 · 本科生</h4>
+            <p>工业设计</p>
+            <div class="resume-course"><span>产品结构设计(97)</span><span>用户研究(91)</span><span>手绘(92)</span></div>
+          </article>
+        </div>
+      </section>
+<section class="resume-block "><h3><span class="resume-dot"></span>实习经历 <small>Intern Experience</small></h3><div class="resume-timeline"><article class="resume-item"><span class="resume-time">2026.07 - 至今</span><h4>博西家用电器（中国）有限公司</h4><p><strong>设计调研：</strong>对青年群体用户展开调研与消费趋势研究，为设计部门和CMF部门产出相关设计趋势报告；现场走访完成设计部门相关竞品硬件部分分析报告。</p><p><strong>方案设计：</strong>协助博世家电套系组提出设计方案，与研发部门沟通合作完成基于特定话题与群体的相关设计，完成相关迭代并完成效果图制作。完成粘毛器、便携洗衣机等小型家电的方案设计与效果图产出。</p><p><strong>界面设计：</strong>完成洗碗机交互界面的方案设计与打样相关工作。</p></article></div></section><section class="resume-block "><h3><span class="resume-dot"></span>学校任职经历 <small>Campus Leadership</small></h3><div class="resume-timeline"><article class="resume-item"><span class="resume-time">2023.09 - 2024.06</span><h4>本科生工业设计党支部副书记</h4><p><strong>工作内容：</strong>协助支部书记推进常态化党务管理工作，独立策划并落地多场主题党建活动，统筹支部30余名党员参与学院各类实践建设，负责党员日常事务协调与活动统筹执行。</p><p><strong>成果：</strong>完成全年党务运营与党建实践落地，凭借履职表现连续获评2024、2025年度优秀共产党员。</p></article><article class="resume-item"><span class="resume-time">2022.09 - 2023.09</span><h4>党支部社团社长</h4><p><strong>工作内容：</strong>全权统筹社团运营与特色文化宣传策划，创新采用互动体验式宣讲形式，面向新生开展校园文化与工业设计专业特色科普宣讲，统筹团队分工、活动资源与落地执行。</p><p><strong>成果：</strong>打造具有特色的迎新宣讲活动，带领社团整体获评年度优秀社团。</p></article><article class="resume-item"><span class="resume-time">2022.09 - 2023.09</span><h4>2022级新生辅导员助理</h4><p><strong>工作内容：</strong>配合辅导员统筹新生日常管理工作，完成通知传达、学生档案汇总整理等基础事务，牵头策划组织学院新生文体活动，统筹队伍训练、参赛全流程工作。</p><p><strong>成果：</strong>高效完成新生日常管理，带队参与校级文体赛事，累计拿下一等奖3项、二等奖1项。</p></article><article class="resume-item"><span class="resume-time">2020.09 - 2021.09</span><h4>工业设计班级班长</h4><p><strong>工作内容：</strong>统筹班级全部日常事务，合理划分班级工作分工，协调师生、同学间沟通对接，策划组织多项班级集体活动，保障班级日常管理、学风建设有序推进。</p><p><strong>成果：</strong>班级整体凝聚力与学风表现突出，获评年度优秀班集体，个人获评优秀学生干部。</p></article></div></section></div>
+      <div class="resume-projects"><section class="resume-block "><h3><span class="resume-dot"></span>项目经验 <small>Project Experience</small></h3><div class="resume-timeline"><article class="resume-project-item"><span class="resume-time">2025.07 - 2026.04</span><h4>南理工国家实验室合作项目</h4><div class="resume-tags"><span>造型设计</span><span>结构设计</span></div><p><strong>项目背景：</strong>针对丝杠寿命试验台、高速直线导轨副综合性能试验台两类大型精密实验机床，开展模块化拆分与外观迭代，兼顾外观整体性与内部组件快速拆装、改装替换需求。</p><p><strong>个人工作：</strong>完成机床CMF配色材质规划、三维建模与产品渲染；实地对接生产厂家，协同完成标准件选型、内部结构方案研讨；负责整机钣金外壳结构设计，同步优化设备操作、检修换油功能迭代。</p><p><strong>最终产出：</strong>丝杠寿命试验台方案定稿，现已投产加工；高速直线导轨性能试验台设计方案落地，进入预生产阶段。</p></article><article class="resume-project-item"><span class="resume-time">2024.04 - 2024.06</span><h4>EPED实验室纯水机设计</h4><div class="resume-tags"><span>结构设计</span><span>动画设计</span></div><p><strong>项目背景：</strong>针对传统实验室纯水机占地大、按键交互老旧、滤芯更换繁琐、出水口适配性差等痛点，围绕易用、智能、美观、多功能四大需求迭代整机。</p><p><strong>个人工作：</strong>完成K2/K2S/K5/K5S系列纯水机一体化外观与内部整机结构设计；制作产品演示三维动画，直观展示设备水路工作原理、内部腔体结构、完整操作流程；输出可视化素材，支撑客户方案汇报、项目落地对接沟通。</p><p><strong>最终产出：</strong>系列产品实现商用量产，搭载10.1寸全覆盖玻璃触控屏，实现滤芯快速拆装、多规格取水兼容，匹配现代化实验室视觉风格。</p></article><article class="resume-project-item"><span class="resume-time">2023.10 - 2024.01</span><h4>广州汽车集团校企合作项目</h4><div class="resume-tags"><span>视频制作</span><span>项目管理</span></div><p><strong>项目背景：</strong>以2035大湾区智慧出行为核心命题，分为6大场景子课题、30人团队并行开展概念设计，需要统一整体世界观、商业逻辑与视觉叙事，整合各组分散设计成果输出面向高管的路演内容。</p><p><strong>个人工作：</strong>搭建项目顶层世界观与商业框架，制定统一视觉规范；搭建脚本-任务分配-周同步-审核迭代闭环流程；全程负责汇报视频脚本、素材整合、后期剪辑与视觉包装。</p><p><strong>最终产出：</strong>输出10分钟完整项目路演成片，统一全项目叙事视觉体系，完成高层汇报交付，输出标准化商业方案支撑IP衍生。</p></article><article class="resume-project-item"><span class="resume-time">2023.05 - 2023.06</span><h4>岚江科技打药车设计</h4><div class="resume-tags"><span>造型设计</span><span>结构设计</span></div><p><strong>项目背景：</strong>深挖果园种植场景痛点，针对果树间距限制、人工喷药效率低等问题，制定设备轻量化、窄通过性改良设计方案。</p><p><strong>个人工作：</strong>统筹内部承载框架与外部钣金结构设计，综合考量设备通风散热、加工装配成本、量产工艺约束；优化装药操作区域人机尺寸，同步完成整车外观CMF与造型方案。</p><p><strong>最终产出：</strong>最终方案定型为3WGZ-500n果园多功能农药喷洒机器人，实现批量投产落地。</p></article></div></section></div>
+    </div>
+  </section>
+
+  <main>
+    <div class="section-title" id="work">
+      <h2>Selected Work</h2><span class="meta">01—04</span>
+    </div>
+
+    <article class="project" id="project-1">
+      <a class="project-visual" href="project-motion.html"><img src="assets/projects/motion/T1.png?v=nopagenum-20261009" alt="体感运动游戏手柄设计项目总览"></a>
+      <div class="project-copy">
+        <div><span class="meta">Motion interaction · 2026</span><h3>体感运动游戏手柄设计</h3><p class="project-en">Motion Interactive Game Controller Design</p><div class="project-tags"><span>用户研究</span><span>体感交互</span><span>流程呈现</span></div></div>
+        <p class="project-description">针对重型手柄与运动交互反馈不足的问题，优化握持曲面、分区结构与配重方式，提升运动游戏中的稳定性、真实交互感和使用安全性。</p>
+        <a class="project-link" href="project-motion.html" data-project-transition="motion">查看项目总览 <span aria-hidden="true">→</span></a>
+      </div>
+      <img class="project-moon edge" src="assets/project-crescent-1.png?v=2" alt="">
+      <img class="project-moon soft" src="assets/project-crescent-1.png?v=2" alt="">
+    </article>
+
+<article class="project" id="project-3">
+      <a class="project-visual" href="project-scooter.html"><img src="assets/projects/scooter/G1.png?v=nopagenum-20261009" alt="公共空间电动租赁滑板车设计项目总览"></a>
+      <div class="project-copy">
+        <div><span class="meta">Mobility design · 2024</span><h3>公共空间电动租赁滑板车设计</h3><p class="project-en">Scooter Design for Public Spaces</p><div class="project-tags"><span>出行设计</span><span>公共产品</span><span>结构设计</span></div></div>
+        <p class="project-description">面向公共空间短途出行与共享租赁场景，围绕轻便操作、稳定结构和高识别度设计电动滑板车，提升日常使用与维护体验。</p>
+        <a class="project-link" href="project-scooter.html" data-project-transition="scooter">查看项目总览 <span aria-hidden="true">→</span></a>
+      </div>
+      <img class="project-moon edge" src="assets/project-crescent-3.png?v=2" alt="">
+      <img class="project-moon soft" src="assets/project-crescent-3.png?v=2" alt="">
+    </article>
+
+    <article class="project" id="project-4">
+      <a class="project-visual" href="project-eped.html"><img src="assets/projects/eped/E1.png?v=nopagenum-20261009" alt="EPED 实验室纯水机设计项目总览"></a>
+      <div class="project-copy">
+        <div><span class="meta">Laboratory equipment · 2025</span><h3>EPED 实验室纯水机设计</h3><p class="project-en">Laboratory Water Purifier Design</p><div class="project-tags"><span>结构设计</span><span>动画展示</span><span>COOP</span></div></div>
+        <p class="project-description">围绕实验室日常取水需求，整合防水触控、模块化滤芯与漏水监测功能，在保障稳定性能的同时提升安装、维护和操作效率。</p>
+        <a class="project-link" href="project-eped.html" data-project-transition="eped">查看项目总览 <span aria-hidden="true">→</span></a>
+      </div>
+      <img class="project-moon edge" src="assets/project-crescent-4.png?v=2" alt="">
+      <img class="project-moon soft" src="assets/project-crescent-4.png?v=2" alt="">
+    </article>
+
+    <article class="project" id="project-5">
+      <a class="project-visual" href="project-solis.html"><img src="assets/projects/solis/C1.png?v=nopagenum-20261009" alt="SOLIS-VAULT 家用储能电池设计项目总览"></a>
+      <div class="project-copy">
+        <div><span class="meta">Energy product design · 2025</span><h3>SOLIS-VAULT 家用储能电池设计</h3><p class="project-en">Residential Energy Storage Power Station Design</p><div class="project-tags"><span>模块化设计</span><span>家庭储能</span></div></div>
+        <p class="project-description">以轻量化、模块化与智能化为核心，构建可拆分电池组合和多重供电系统，改善传统储能设备笨重、复杂且难以融入家庭的问题。</p>
+        <a class="project-link" href="project-solis.html" data-project-transition="solis">查看项目总览 <span aria-hidden="true">→</span></a>
+      </div>
+      <img class="project-moon edge" src="assets/project-crescent-5.png?v=2" alt="">
+      <img class="project-moon soft" src="assets/project-crescent-5.png?v=2" alt="">
+    </article>
+
+    <section class="quick-look" id="quick-look" aria-label="项目速览">
+      <div class="quick-head">
+        <h2>Quick Look</h2><span class="meta">Project Cards</span>
+      </div>
+      <div class="quick-rows" id="quickRows"></div>
+    </section>
+
+  </main>
+
+  <div class="quick-overlay" id="quickOverlay" aria-hidden="true">
+    <article class="quick-modal" role="dialog" aria-modal="true" aria-labelledby="quickTitle">
+      <div class="quick-hero" id="quickHero"></div>
+      <div class="quick-dots" id="quickDots" aria-label="图片页码"></div>
+      <div class="quick-detail">
+        <h3 id="quickTitle"></h3>
+        <div class="quick-tags" id="quickModalTags"></div>
+        <p class="quick-desc" id="quickDesc"></p>
+      </div>
+    </article>
+  </div>
+
+  <dialog class="quick-lightbox" id="quickLightbox" aria-label="图片放大查看">
+    <button type="button" class="quick-image-close" aria-label="关闭放大图片">×</button>
+    <img alt="">
+  </dialog>
+
+  <footer id="contact">
+    <span class="meta">Let’s work together</span>
+    <h2>期待您的联络</h2>
+    <div class="contact-list" aria-label="联系方式">
+      <a href="weixin://dl/chat?dhf15147168088" aria-label="微信 dhf15147168088">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 6.5c-4 0-7.2 2.5-7.2 5.7 0 1.8 1 3.4 2.7 4.4l-.5 2 2.3-1.2c.8.3 1.7.5 2.7.5 4 0 7.2-2.5 7.2-5.7s-3.2-5.7-7.2-5.7Z"/><path d="M14.2 10.4c3.3.2 5.8 2.3 5.8 5 0 1.5-.8 2.8-2.2 3.7l.4 1.7-1.9-.9c-.7.2-1.4.3-2.1.3-2.8 0-5.2-1.6-5.8-3.8"/><path d="M7.6 11.2h.01M12.6 11.2h.01M13.6 15.2h.01M17.3 15.2h.01"/></svg>
+        dhf15147168088
+      </a>
+      <a href="tel:15147168088" aria-label="电话 15147168088">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 4.2 9.6 3l3 5.2-2 1.4c1.1 2.2 2.7 3.8 4.9 4.9l1.4-2 5.2 3-1.2 2.4c-.7 1.5-2.3 2.3-3.9 1.8-6-1.8-10.7-6.5-12.5-12.5-.5-1.6.3-3.2 1.7-4Z"/><path d="M15.5 4.5a4 4 0 0 1 4 4M15.5 1.8a6.7 6.7 0 0 1 6.7 6.7"/></svg>
+        15147168088
+      </a>
+      <a href="mailto:decaldk@163.com" aria-label="邮箱 decaldk@163.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5 12 2l9 5.5V20H3V7.5Z"/><path d="m3 8 9 6 9-6"/></svg>
+        decaldk@163.com
+      </a>
+    </div>
+    <div class="foot"><span>© 2026 段皓凡</span></div>
+    <img class="footer-moon blue" src="assets/hero-crescent-orange.png?v=3" data-x=".78" data-y=".36" data-size=".38" data-base-rot="180" data-amp="10" data-period="5.2" data-phase="0" data-collision=".41" alt="">
+    <img class="footer-moon pink" src="assets/hero-crescent-spectrum.png?v=3" data-x=".54" data-y=".61" data-size=".22" data-base-rot="135" data-amp="10" data-period="4.7" data-phase="2.2" data-collision=".42" alt="">
+  </footer>
+
+  <script>
+    const nav=document.querySelector('#nav'),menu=document.querySelector('#menu'),links=document.querySelector('#links');
+    addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+    function closeMenu(){
+      links.classList.remove('open');
+      menu.setAttribute('aria-expanded','false');
+      document.body.classList.remove('menu-open');
+    }
+    menu.addEventListener('click',()=>{const open=!links.classList.contains('open');links.classList.toggle('open',open);menu.setAttribute('aria-expanded',open);document.body.classList.toggle('menu-open',open)});
+    links.addEventListener('click',closeMenu);
+    document.addEventListener('click',event=>{if(document.body.classList.contains('menu-open')&&!nav.contains(event.target))closeMenu()});
+
+    const hero=document.querySelector('.hero'),bubbleEls=[...document.querySelectorAll('.hero-bubble')];
+    const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const pointer={x:-9999,y:-9999,active:false};
+    let bubbles=[],last=performance.now();
+
+    function setBubbleBounds(reset=false){
+      const mobile=innerWidth<760;
+      const rect=hero.getBoundingClientRect(),base=mobile?rect.width:rect.height;
+      const mobileLayout=[
+        {x:.86,y:.36,size:.62,rot:150,collision:.43},
+        {x:.42,y:.51,size:.68,rot:180,collision:.43},
+        {x:.84,y:.60,size:.42,rot:30,collision:.42},
+        {x:.38,y:.17,size:.18,rot:90,collision:.2}
+      ];
+      const top=mobile?0:34,space=rect.height-top;
+      bubbles=bubbleEls.map((el,i)=>{
+        const layout=mobile?mobileLayout[i]:null;
+        const sizeRatio=layout?.size??Number(el.dataset.size);
+        const old=bubbles[i],size=Math.max(34,base*sizeRatio);
+        el.style.width=el.style.height=size+'px';
+        const ax=rect.width*(layout?.x??Number(el.dataset.x)),ay=top+space*(layout?.y??Number(el.dataset.y));
+        return{
+          el,r:size*(layout?.collision??Number(el.dataset.collision||.19)),half:size/2,ax,ay,
+          main:el.dataset.main==='true',
+          x:reset||!old?ax:ax+(old.x-old.ax),
+          y:reset||!old?ay:ay+(old.y-old.ay),
+          vx:old?.vx??0,vy:old?.vy??0,
+          baseRot:layout?.rot??Number(el.dataset.baseRot),amp:Number(el.dataset.amp),
+          period:Number(el.dataset.period),phase:Number(el.dataset.phase),
+          tilt:0
+        };
+      });
+    }
+    setBubbleBounds(true);
+    addEventListener('resize',()=>setBubbleBounds(false));
+    hero.addEventListener('pointermove',e=>{
+      const rect=hero.getBoundingClientRect();
+      pointer.x=e.clientX-rect.left;pointer.y=e.clientY-rect.top;pointer.active=true;
+    });
+    hero.addEventListener('pointerleave',()=>pointer.active=false);
+
+    function animate(now){
+      const rect=hero.getBoundingClientRect(),dt=Math.min(2,(now-last)/16.67);last=now;
+      if(!reduced){
+        for(const b of bubbles){
+          // Pointer movement is temporary: a damped spring restores the exact cover layout.
+          b.vx+=(b.ax-b.x)*.0065*dt;
+          b.vy+=(b.ay-b.y)*.0065*dt;
+          if(pointer.active){
+            const dx=b.x-pointer.x,dy=b.y-pointer.y,dist=Math.hypot(dx,dy)||1,range=b.r+Math.min(150,rect.width*.1);
+            if(dist<range){
+              const force=(1-dist/range)*.62;
+              b.vx+=dx/dist*force;b.vy+=dy/dist*force;
+            }
+          }
+          b.x+=b.vx*dt;b.y+=b.vy*dt;
+          const speed=Math.hypot(b.vx,b.vy),max=1.1;
+          if(speed>max){b.vx=b.vx/speed*max;b.vy=b.vy/speed*max}
+          b.vx*=.955;b.vy*=.955;
+        }
+        const main=bubbles.filter(b=>b.main);
+        for(let pass=0;pass<3;pass++)for(let i=0;i<main.length;i++)for(let j=i+1;j<main.length;j++){
+          const a=main[i],b=main[j],dx=b.x-a.x,dy=b.y-a.y,dist=Math.hypot(dx,dy)||1,min=a.r+b.r;
+          if(dist<min){
+            const nx=dx/dist,ny=dy/dist,overlap=(min-dist)/2;
+            a.x-=nx*overlap;a.y-=ny*overlap;b.x+=nx*overlap;b.y+=ny*overlap;
+            const relative=(b.vx-a.vx)*nx+(b.vy-a.vy)*ny;
+            if(relative<0){
+              const impulse=-relative*.42;
+              a.vx-=nx*impulse;a.vy-=ny*impulse;b.vx+=nx*impulse;b.vy+=ny*impulse;
+            }
+          }
+        }
+      }
+      const seconds=now/1000;
+      for(const b of bubbles){
+        const idle=reduced?0:Math.sin(seconds*Math.PI*2/b.period+b.phase)*b.amp;
+        const angle=b.baseRot+idle;
+        const breath=reduced?0:Math.sin(seconds*Math.PI*2/(b.period*1.45)+b.phase);
+        const driftX=breath*Math.min(18,b.half*.055);
+        const driftY=Math.cos(seconds*Math.PI*2/(b.period*1.7)+b.phase)*Math.min(14,b.half*.042);
+        const scale=1+breath*.035;
+        b.el.style.transform=`translate3d(${b.x-b.half+driftX}px,${b.y-b.half+driftY}px,0) rotate(${angle}deg) scale(${scale})`;
+      }
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    const footer=document.querySelector('#contact'),footerMoonEls=[...document.querySelectorAll('.footer-moon')];
+    const footerPointer={x:-9999,y:-9999,active:false};
+    let footerMoons=[],footerLast=performance.now();
+
+    function setFooterMoonBounds(reset=false){
+      const rect=footer.getBoundingClientRect(),base=Math.min(rect.width,rect.height*1.06);
+      footerMoons=footerMoonEls.map((el,i)=>{
+        const old=footerMoons[i],size=Math.max(120,base*Number(el.dataset.size));
+        el.style.width=el.style.height=size+'px';
+        const ax=rect.width*Number(el.dataset.x),ay=rect.height*Number(el.dataset.y);
+        return{
+          el,r:size*Number(el.dataset.collision||.42),half:size/2,ax,ay,
+          x:reset||!old?ax:ax+(old.x-old.ax),
+          y:reset||!old?ay:ay+(old.y-old.ay),
+          vx:old?.vx??0,vy:old?.vy??0,
+          baseRot:Number(el.dataset.baseRot),amp:Number(el.dataset.amp),
+          period:Number(el.dataset.period),phase:Number(el.dataset.phase)
+        };
+      });
+    }
+    setFooterMoonBounds(true);
+    addEventListener('resize',()=>setFooterMoonBounds(false));
+    footer.addEventListener('pointermove',e=>{
+      const rect=footer.getBoundingClientRect();
+      footerPointer.x=e.clientX-rect.left;footerPointer.y=e.clientY-rect.top;footerPointer.active=true;
+    });
+    footer.addEventListener('pointerleave',()=>footerPointer.active=false);
+
+    function animateFooterMoons(now){
+      const dt=Math.min(2,(now-footerLast)/16.67);footerLast=now;
+      if(!reduced){
+        for(const moon of footerMoons){
+          moon.vx+=(moon.ax-moon.x)*.0075*dt;
+          moon.vy+=(moon.ay-moon.y)*.0075*dt;
+          if(footerPointer.active){
+            const dx=moon.x-footerPointer.x,dy=moon.y-footerPointer.y,dist=Math.hypot(dx,dy)||1,range=moon.r+120;
+            if(dist<range){
+              const force=(1-dist/range)*.82;
+              moon.vx+=dx/dist*force;moon.vy+=dy/dist*force;
+            }
+          }
+        }
+        for(let i=0;i<footerMoons.length;i++){
+          for(let j=i+1;j<footerMoons.length;j++){
+            const a=footerMoons[i],b=footerMoons[j],dx=b.x-a.x,dy=b.y-a.y,dist=Math.hypot(dx,dy)||1,min=a.r+b.r+18;
+            if(dist<min){
+              const push=(min-dist)*.016;
+              a.vx-=dx/dist*push;b.vx+=dx/dist*push;
+              a.vy-=dy/dist*push;b.vy+=dy/dist*push;
+            }
+          }
+        }
+        for(const moon of footerMoons){
+          moon.vx*=.9;moon.vy*=.9;moon.x+=moon.vx*dt;moon.y+=moon.vy*dt;
+          const t=now/1000,driftX=Math.sin(t/moon.period+moon.phase)*22,driftY=Math.cos(t/(moon.period*1.15)+moon.phase)*18;
+          const angle=moon.baseRot+Math.sin(t/moon.period+moon.phase)*moon.amp;
+          const scale=1+Math.sin(t/(moon.period*.78)+moon.phase)*.035;
+          moon.el.style.transform=`translate3d(${moon.x-moon.half+driftX}px,${moon.y-moon.half+driftY}px,0) rotate(${angle}deg) scale(${scale})`;
+        }
+      }else{
+        for(const moon of footerMoons) moon.el.style.transform=`translate3d(${moon.ax-moon.half}px,${moon.ay-moon.half}px,0) rotate(${moon.baseRot}deg)`;
+      }
+      requestAnimationFrame(animateFooterMoons);
+    }
+    requestAnimationFrame(animateFooterMoons);
+
+    const quickItems=[
+      {title:'南理实验室合作项目',tags:['实际项目','结构设计'],thumb:'assets/quicklook/Rectangle 289.png',slides:['assets/quicklook/Rectangle 289.png','assets/quicklook/Rectangle 290.png','assets/quicklook/Frame 278.png'],desc:'参与丝杠寿命试验台、高速直线导轨副综合性能试验台外观设计工作，统筹外观方案创作、钣金结构优化及项目对接沟通。设计过程以不干涉设备内部结构、不影响整机测试性能为前提，持续迭代外观造型与钣金分块结构，优化人机操作区域，提升设备整体工业质感与使用体验。同时独立完成配套油盒专项设计，完善润滑回收配套功能，补足设备原有功能缺陷，兼顾外观美观度、结构工艺可行性与设备实用性能。'},
+      {title:'个人胶枪重构设计',tags:['结构拆解','功能优化'],thumb:'assets/quicklook/Rectangle 292.png',slides:['assets/quicklook/Rectangle 292.png','assets/quicklook/Rectangle 293.png','assets/quicklook/Rectangle 294.png'],desc:'针对胶枪漏胶、出胶后残留拉丝等使用痛点开展优化设计。通过更换多款不同规格胶枪口对比测试，筛选适配方案改善漏胶、留丝问题；同步结合握持手感需求改良整机外观造型，贴合个人人手使用习惯。同时调整内部塑料零部件结构，在优化外观造型的基础上保障出胶、按压等核心功能稳定可靠，兼顾使用体验、外观美感与结构实用性。'},
+      {title:'众普森灯具设计',tags:['实际项目','形态设计'],thumb:'assets/quicklook/Rectangle 295.png',slides:['assets/quicklook/Rectangle 295.png','assets/quicklook/Rectangle 296.png'],desc:'分别对小路灯、大路灯及闸道灯三类产品的造型与结构进行需求设计，结合户外场景需求完成外观方案迭代与结构优化，兼顾产品美观性、安装适配性与量产可行性，形成完整的设计输出方案。'},
+      {title:'广汽概念车设计',tags:['外形设计'],thumb:'assets/quicklook/Rectangle 300.png',slides:['assets/quicklook/Rectangle 298.png','assets/quicklook/Rectangle 299.png','assets/quicklook/Rectangle 300.png'],desc:'“夜影”以当代青年的自我表达需求为设计内核，洞察都市年轻人奔波忙碌、渴望彰显个性的生活状态，将MPV车身打造为专属个性化展示载体，产品融合车载投影功能，既可以依托车身完成个性化图案投射以满足青年自我表达需求，同时兼顾投影观影、户外游戏等基础影音功能，丰富自驾出游的休闲场景；整车基于MPV车型外观延展设计，对车尾采用半包围式造型改造，打造具备遮光效果的车尾投影放映空间，在保留原车大气稳重的整车气质基础上，塑造兼具舒适氛围与动感线条的全新视觉形态。'},
+      {title:'感应小夜灯设计',tags:['结构设计','功能实现'],thumb:'assets/quicklook/Rectangle 301.png',slides:['assets/quicklook/Rectangle 301.png','assets/quicklook/Rectangle 302.png','assets/quicklook/Rectangle 303.png'],desc:'本次结构设计面向夜间出行场景打造多功能小夜灯，相较于市面常规产品拓展复合实用功能：灯具与粘贴支架采用磁吸式组合结构，灯体可单独拆卸，实现固定照明与便携手持两用；整机依靠按键切换工作模式，搭载三类核心功能：具备人体距离感应调光逻辑，人体越靠近灯光亮度越低，适配起夜柔和用光需求；实时采集环境温湿度，并通过灯光色彩直观反馈数据；同时支持常亮模式，可适配居家、户外等多元使用场景。'},
+      {title:'手柄交互流程拆解',tags:['动作场景','握持分析','验证思路'],thumb:'assets/motion-project-04.png',slides:['assets/motion-project-04.png','assets/motion-project-05.png','assets/motion-project-06.png'],desc:'从动作幅度、握持姿态和安全风险出发，拆解运动手柄在不同玩法中的核心体验矛盾，形成可验证的设计方向。'},
+      {title:'智慧出行方案整合',tags:['项目协同','信息架构','汇报逻辑'],thumb:'assets/gac-project-04.png',slides:['assets/gac-project-04.png','assets/gac-project-05.png','assets/gac-project-06.png'],desc:'将多组子方案、角色分工和项目阶段整理成清晰的内容结构，帮助复杂项目在短时间内形成统一表达。'},
+      {title:'滑板车服务闭环',tags:['B端管理','公共场景','运营维护'],thumb:'assets/scooter-project-04.png',slides:['assets/scooter-project-04.png','assets/scooter-project-05.png','assets/scooter-project-06.png'],desc:'从车辆使用者、维护人员和运营方三个视角，思考公共租赁产品如何完成从使用体验到后台管理的闭环。'},
+      {title:'纯水机结构与维护',tags:['模块化','防呆设计','故障反馈'],thumb:'assets/eped-project-04.png',slides:['assets/eped-project-04.png','assets/eped-project-05.png','assets/eped-project-06.png'],desc:'将滤芯更换、漏水风险、触控操作和设备状态提示作为关键问题，优化实验室设备的可靠性和维护效率。'},
+      {title:'家庭能源交互系统',tags:['数据反馈','模块组合','能源管理'],thumb:'assets/solis-project-04.png',slides:['assets/solis-project-04.png','assets/solis-project-05.png','assets/solis-project-06.png'],desc:'围绕家庭用电、备电和设备状态可视化，探索储能产品在硬件形态、模块组合和智能反馈上的设计表达。'}
+    ];
+
+    const quickRows=document.querySelector('#quickRows'),quickLook=document.querySelector('.quick-look');
+    const quickOverlay=document.querySelector('#quickOverlay'),quickHero=document.querySelector('#quickHero'),quickDots=document.querySelector('#quickDots');
+    const quickTitle=document.querySelector('#quickTitle'),quickModalTags=document.querySelector('#quickModalTags'),quickDesc=document.querySelector('#quickDesc');
+    let quickActive=0,quickSlide=0,quickTimer;
+    let quickDrag=null,quickSuppressClick=false;
+
+    function makeQuickCard(item,index){
+      const card=document.createElement('button');
+      card.className='quick-card';
+      card.type='button';
+      card.dataset.quickIndex=index;
+      card.innerHTML=`<img class="quick-thumb" src="${item.thumb}" alt="${item.title}"><div class="quick-card-bottom"><h3>${item.title}</h3><div class="quick-tags">${item.tags.map(tag=>`<span>${tag}</span>`).join('')}</div></div>`;
+      return card;
+    }
+    function buildQuickRows(){
+      quickRows.innerHTML='';
+      const mobile=innerWidth<=760;
+      const groups=[quickItems.slice(0,5)];
+      groups.forEach((group,rowIndex)=>{
+        const row=document.createElement('div');
+        row.className=`quick-row${rowIndex?' offset':''}`;
+        const track=document.createElement('div');
+        track.className='quick-track';
+        group.forEach((item)=>track.appendChild(makeQuickCard(item,quickItems.indexOf(item))));
+        row.appendChild(track);
+        quickRows.appendChild(row);
+      });
+    }
+    quickRows.addEventListener('dragstart',event=>event.preventDefault());
+    quickRows.addEventListener('pointerdown',event=>{
+      quickSuppressClick=false;
+      if(event.pointerType!=='mouse'||event.button!==0)return;
+      quickDrag={id:event.pointerId,x:event.clientX,left:quickRows.scrollLeft};
+    });
+    quickRows.addEventListener('pointermove',event=>{
+      if(!quickDrag||event.pointerId!==quickDrag.id)return;
+      const dx=event.clientX-quickDrag.x;
+      if(Math.abs(dx)>6){
+        quickSuppressClick=true;
+        quickRows.setPointerCapture(event.pointerId);
+        quickRows.classList.add('dragging');
+      }
+      if(quickSuppressClick)quickRows.scrollLeft=quickDrag.left-dx;
+    });
+    function endQuickDrag(){
+      if(quickDrag&&quickRows.hasPointerCapture(quickDrag.id))quickRows.releasePointerCapture(quickDrag.id);
+      quickDrag=null;quickRows.classList.remove('dragging');
+    }
+    window.addEventListener('pointerup',endQuickDrag);
+    window.addEventListener('pointercancel',endQuickDrag);
+    function setQuickSlide(index){
+      quickSlide=(index+quickItems[quickActive].slides.length)%quickItems[quickActive].slides.length;
+      quickHero.querySelectorAll('.quick-slide').forEach((img,i)=>img.classList.toggle('active',i===quickSlide));
+      quickDots.querySelectorAll('.quick-dot').forEach((dot,i)=>dot.classList.toggle('active',i===quickSlide));
+    }
+    function startQuickTimer(){
+      clearInterval(quickTimer);
+      quickTimer=setInterval(()=>setQuickSlide(quickSlide+1),3600);
+    }
+    function openQuick(index){
+      quickActive=index;quickSlide=0;
+      const item=quickItems[index];
+      quickTitle.textContent=item.title;
+      quickDesc.textContent=item.desc;
+      quickModalTags.innerHTML=item.tags.map(tag=>`<span>${tag}</span>`).join('');
+      quickHero.innerHTML=`<button class="quick-nav-btn quick-prev" type="button" aria-label="上一张">‹</button>${item.slides.map((src,i)=>`<img class="quick-slide${i===0?' active':''}" src="${src}" alt="${item.title} 第${i+1}张" role="button" tabindex="0" aria-label="放大查看：${item.title} 第${i+1}张">`).join('')}<button class="quick-nav-btn quick-next" type="button" aria-label="下一张">›</button>`;
+      quickDots.innerHTML=item.slides.map((_,i)=>`<button class="quick-dot${i===0?' active':''}" type="button" aria-label="第${i+1}张"></button>`).join('');
+      quickDots.querySelectorAll('.quick-dot').forEach((dot,i)=>dot.addEventListener('click',()=>{setQuickSlide(i);startQuickTimer()}));
+      quickHero.querySelector('.quick-prev').addEventListener('click',event=>{event.stopPropagation();setQuickSlide(quickSlide-1);startQuickTimer()});
+      quickHero.querySelector('.quick-next').addEventListener('click',event=>{event.stopPropagation();setQuickSlide(quickSlide+1);startQuickTimer()});
+      quickOverlay.classList.add('open');
+      quickOverlay.setAttribute('aria-hidden','false');
+      document.body.classList.add('quick-open');
+      startQuickTimer();
+    }
+    function closeQuick(){
+      clearInterval(quickTimer);
+      quickOverlay.classList.remove('open');
+      quickOverlay.setAttribute('aria-hidden','true');
+      document.body.classList.remove('quick-open');
+    }
+    quickRows.addEventListener('mouseenter',()=>quickLook.classList.add('paused'));
+    quickRows.addEventListener('mouseleave',()=>quickLook.classList.remove('paused'));
+    quickRows.addEventListener('click',event=>{
+      if(quickSuppressClick){event.preventDefault();quickSuppressClick=false;return}
+      const card=event.target.closest('.quick-card');
+      if(card)openQuick(Number(card.dataset.quickIndex));
+    });
+    buildQuickRows();
+    let quickLayoutMobile=innerWidth<=760,quickResizeTimer;
+    addEventListener('resize',()=>{
+      clearTimeout(quickResizeTimer);
+      quickResizeTimer=setTimeout(()=>{
+        const nextMobile=innerWidth<=760;
+        if(nextMobile!==quickLayoutMobile){
+          quickLayoutMobile=nextMobile;
+          buildQuickRows();
+        }
+      },160);
+    });
+    quickOverlay.addEventListener('click',event=>{if(event.target===quickOverlay)closeQuick()});
+    const quickLightbox=document.querySelector('#quickLightbox');
+    const quickFullImage=quickLightbox.querySelector('img');
+    const quickImageClose=quickLightbox.querySelector('button');
+    let quickImageOrigin;
+    function openQuickImage(img){
+      clearInterval(quickTimer);
+      quickImageOrigin=img;
+      quickFullImage.src=img.src;quickFullImage.alt=img.alt;
+      quickLightbox.showModal();quickImageClose.focus();
+    }
+    function closeQuickImage(){quickLightbox.close()}
+    quickLightbox.addEventListener('close',()=>{
+      quickImageOrigin?.focus();
+      if(quickOverlay.classList.contains('open'))startQuickTimer();
+    });
+    quickImageClose.addEventListener('click',closeQuickImage);
+    quickLightbox.addEventListener('click',event=>{if(event.target===quickLightbox)closeQuickImage()});
+    quickHero.addEventListener('click',event=>{if(event.target.matches('.quick-slide'))openQuickImage(event.target)});
+    quickHero.addEventListener('keydown',event=>{
+      if((event.key==='Enter'||event.key===' ')&&event.target.matches('.quick-slide')){event.preventDefault();openQuickImage(event.target)}
+    });
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!quickLightbox.open&&quickOverlay.classList.contains('open'))closeQuick()});
+
+    document.querySelectorAll('[data-project-transition]').forEach(link=>{
+      const project=link.closest('.project');
+      const cover=project?.querySelector('.project-visual img');
+      link.addEventListener('click',event=>{
+        if(!cover||reduced||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0||document.body.classList.contains('project-leaving'))return;
+        event.preventDefault();
+        const visual=cover.closest('.project-visual');
+        const frame=visual.getBoundingClientRect();
+        const band=frame.height*.08;
+        const stage=document.createElement('span');
+        const clone=cover.cloneNode();
+        stage.className='project-transition-stage';
+        clone.className='project-transition-cover';
+        Object.assign(clone.style,{
+          top:`${frame.top+band}px`,
+          left:`${frame.left}px`,
+          width:`${frame.width}px`,
+          height:`${frame.height-band*2}px`,
+          borderRadius:'10px'
+        });
+        document.body.append(stage,clone);
+        document.body.classList.add('project-leaving');
+        requestAnimationFrame(()=>requestAnimationFrame(()=>{
+          stage.classList.add('active');
+          const targetGutter=Math.min(52,Math.max(14,innerWidth*.03));
+          const targetTop=Math.min(28,Math.max(14,innerWidth*.018));
+          const targetWidth=innerWidth-targetGutter*2;
+          clone.style.top=`${targetTop}px`;
+          clone.style.left=`${targetGutter}px`;
+          clone.style.width=`${targetWidth}px`;
+          clone.style.height=`${targetWidth*9/16}px`;
+          clone.style.borderRadius='10px';
+        }));
+        setTimeout(()=>clone.style.opacity='0',610);
+        setTimeout(()=>{
+          try{sessionStorage.setItem(`${link.dataset.projectTransition}-detail-enter`,'1')}catch(error){}
+          location.href=link.href;
+        },790);
+      });
+    });
+  </script>
+</body>
+</html>

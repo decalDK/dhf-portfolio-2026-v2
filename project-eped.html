@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="EPED 实验室纯水机设计项目详情">
+  <title>EPED 实验室纯水机设计 | 段皓凡作品集</title>
+  <script>
+    document.documentElement.classList.add('js');
+    try{
+      if(sessionStorage.getItem('eped-detail-enter')==='1'){
+        document.documentElement.classList.add('page-entering');
+        sessionStorage.removeItem('eped-detail-enter');
+      }
+    }catch(error){}
+  </script>
+  <style>
+    :root{--bg:#f8f8fc;--surface:#fbfbfd;--text:#111;--muted:#696872;--line:rgba(17,17,17,.11);--accent:#64A7FF;--accent-ink:#111;--gutter:clamp(20px,3.5vw,64px);--content:1600px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,"Microsoft YaHei",sans-serif;opacity:1;transition:opacity .46s ease}.page-entering body{opacity:0}a{color:inherit;text-decoration:none}
+    .project-head{position:relative;padding:0 var(--gutter);background:var(--surface);overflow:hidden}.project-head::before{content:"";position:absolute;inset:0 0 auto;height:clamp(76px,8vw,112px);background:linear-gradient(90deg,rgba(100,167,255,.88),rgba(82,93,234,.82),rgba(199,210,248,.78),rgba(184,230,250,.75));background-size:220% 100%;animation:tide-bar 12s ease-in-out infinite alternate}.project-head::after{content:"";position:absolute;inset:0 0 auto;height:clamp(76px,8vw,112px);background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(248,248,252,.30));backdrop-filter:blur(12px) saturate(1.12);pointer-events:none}
+    .head-media{position:relative;z-index:1;padding-top:clamp(76px,8vw,112px)}.project-head img{display:block;width:100%;height:auto;border-radius:10px;transform:scale(1);transition:transform .7s cubic-bezier(.22,1,.36,1),opacity .55s ease}.page-entering .project-head img{transform:scale(1.008);opacity:.82}
+    .back-home{position:absolute;z-index:2;top:calc(clamp(76px,8vw,112px)/2);left:var(--gutter);display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border:1px solid rgba(17,17,17,.1);border-radius:999px;background:#fff;box-shadow:0 8px 22px rgba(31,31,44,.06);font-size:13px;font-weight:700;letter-spacing:.08em;transform:translateY(-50%);transition:transform .25s,background .25s}.back-home:hover{transform:translateY(-50%) translateX(-4px);background:#fff}.back-home:focus-visible{outline:3px solid #315efb;outline-offset:5px}
+    .project-intro{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(20px,2vw,36px);max-width:var(--content);margin:0 auto;padding:clamp(72px,7vw,112px) var(--gutter) clamp(44px,4.5vw,72px)}.intro-heading{grid-column:1/8}.meta{font-size:12px;letter-spacing:.14em;text-transform:uppercase}h1{max-width:12ch;margin:18px 0 10px;font-size:clamp(44px,5.8vw,92px);line-height:.96;letter-spacing:-.055em}.project-en{margin:0;color:var(--muted);font-size:clamp(12px,1vw,15px);letter-spacing:.07em;text-transform:uppercase}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}.tags span{padding:6px 11px;border-radius:999px;background:rgba(100,167,255,.18);font-size:11px}.intro-copy{grid-column:9/13;align-self:end}.intro-copy p{margin:0;color:var(--muted);font-size:clamp(16px,1.35vw,21px);line-height:1.7}
+    .project-pages{padding:clamp(36px,4vw,64px) var(--gutter) clamp(80px,10vw,160px)}.page-section{max-width:var(--content);margin:0 auto;padding:clamp(48px,5.2vw,84px) 0}.js .page-section{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}.page-section:first-child{padding-top:0}.page-section+.page-section{border-top:1px solid var(--line)}.js .page-section.visible{opacity:1;transform:none}.page-section figure{margin:0}.page-section img{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 12px 36px rgba(45,45,60,.045)}figcaption{display:flex;justify-content:space-between;gap:24px;margin-top:16px;color:var(--muted);font-size:11px;letter-spacing:.1em}.project-end{display:flex;justify-content:space-between;align-items:center;max-width:var(--content);margin:0 auto;padding-top:32px;border-top:1px solid var(--line)}.project-end a{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-size:13px;font-weight:700;letter-spacing:.08em}.project-end span{color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+    @keyframes tide-bar{from{background-position:0% 50%;filter:saturate(1)}to{background-position:100% 50%;filter:saturate(1.18)}}@media(max-width:760px){.project-head{padding:0 20px}.project-head::before,.project-head::after{height:72px}.head-media{padding-top:72px}.back-home{top:36px;left:20px;min-height:44px;padding:0 17px;background:#fff}.project-intro{display:block;padding-top:58px;padding-bottom:36px}h1{font-size:clamp(40px,12vw,64px)}.intro-copy{margin-top:42px}.project-pages{padding:32px 20px 92px}.page-section{padding:42px 0}.js .page-section{transform:translateY(16px)}.page-section img,.project-head img{border-radius:8px}figcaption{font-size:9px}.project-end{align-items:flex-start;flex-direction:column;gap:24px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.back-home,.project-head img,.page-section,body{transition:none}.project-head::before{animation:none}.js .page-section{opacity:1;transform:none}}
+  figcaption>span:last-child{flex-shrink:0;white-space:nowrap}figcaption>span:first-child{line-height:1.6}.head-media figcaption{padding-bottom:16px}@media(max-width:760px){figcaption{gap:12px;font-size:10px}}
+  </style>
+</head>
+<body>
+  <header class="project-head">
+    <a class="back-home" href="index.html#project-4" aria-label="返回作品集主页">◀ 返回主页</a>
+    <div class="head-media"><figure style="margin:0"><img src="assets/projects/eped/E1.png?v=nopagenum-20261009" width="1920" height="1080" fetchpriority="high" alt="EPED 实验室纯水机设计，EPED实验室纯水机 · 项目概览"><figcaption><span>EPED实验室纯水机 · 项目概览</span><span>01 / 08</span></figcaption></figure></div>
+  </header>
+  <section class="project-intro" aria-labelledby="project-title">
+    <div class="intro-heading">
+      <span class="meta">Laboratory Equipment · 2025</span>
+      <h1 id="project-title">EPED 实验室纯水机设计</h1>
+      <p class="project-en">Laboratory Water Purifier Design</p>
+      <div class="tags"><span>结构设计</span><span>动画展示</span><span>COOP</span></div>
+    </div>
+    <div class="intro-copy"><p>围绕实验室日常取水与设备维护需求，完成纯水机外观结构、模块组件与动画演示设计，在防水触控、滤芯更换和运行状态表达上提升操作效率与产品识别度。</p></div>
+  </section>
+  <main class="project-pages" aria-label="EPED 实验室纯水机设计完整作品">
+    <section class="page-section"><figure><img src="assets/projects/eped/E2.png?v=nopagenum-20261009" width="1920" height="1080" loading="lazy" decoding="async" alt="EPED 实验室纯水机设计，第2页：实验室取水问题与设计目标"><figcaption><span>实验室取水问题与设计目标</span><span>02 / 08</span></figcaption></figure></section>
+    <section class="page-section"><figure><img src="assets/projects/eped/E3.png?v=nopagenum-20261009" width="1920" height="1080" loading="lazy" decoding="async" alt="EPED 实验室纯水机设计，第3页：整机维护与换芯便利性分析"><figcaption><span>整机维护与换芯便利性分析</span><span>03 / 08</span></figcaption></figure></section>
+    <section class="page-section"><figure><img src="assets/projects/eped/E4.png?v=nopagenum-20261009" width="1920" height="1080" loading="lazy" decoding="async" alt="EPED 实验室纯水机设计，第4页：整机结构拆解与个人工作"><figcaption><span>整机结构拆解与个人工作</span><span>04 / 08</span></figcaption></figure></section>
+    <section class="page-section"><figure><img src="assets/projects/eped/E5.png?v=nopagenum-20261009" width="1920" height="1080" loading="lazy" decoding="async" alt="EPED 实验室纯水机设计，第5页：集中接口与功能扩展"><figcaption><span>集中接口与功能扩展</span><span>05 / 08</span></figcaption></figure></section>
+    <section class="page-section"><figure><img src="assets/projects/eped/E6.png?v=nopagenum-20261009" width="1920" height="1080" loading="lazy" decoding="async" alt="EPED 实验室纯水机设计，第6页：便捷换芯与水质监测"><figcaption><span>便捷换芯与水质监测</span><span>06 / 08</span></figcaption></figure></section>
+    <section class="page-section"><figure><img src="assets/projects/eped/E7.png?v=nopagenum-20261009" width="1920" height="1080" loading="lazy" decoding="async" alt="EPED 实验室纯水机设计，第7页：材料质感与CMF配色策略"><figcaption><span>材料质感与CMF配色策略</span><span>07 / 08</span></figcaption></figure></section>
+    <section class="page-section"><figure><img src="assets/projects/eped/E8.png?v=nopagenum-20261009" width="1920" height="1080" loading="lazy" decoding="async" alt="EPED 实验室纯水机设计，第8页：系列配色与最终方案展示"><figcaption><span>系列配色与最终方案展示</span><span>08 / 08</span></figcaption></figure></section>
+    <div class="project-end"><span>End of project</span><a href="index.html#project-4">返回作品集</a></div>
+  </main>
+  <script>
+    requestAnimationFrame(()=>requestAnimationFrame(()=>document.documentElement.classList.remove('page-entering')));
+    const sections=[...document.querySelectorAll('.page-section')];
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches){sections.forEach(section=>section.classList.add('visible'))}else{const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.08,rootMargin:'0px 0px -8% 0px'});sections.forEach(section=>observer.observe(section))}
+  </script>
+</body>
+</html>
